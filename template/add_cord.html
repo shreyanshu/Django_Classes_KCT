@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <form action="/add_cord/" method="post">
+        {% csrf_token %}
+        {{ cordForm.as_p }}
+        {# comment #}
+        <button type="submit">Save</button>
+    </form>
+</body>
+</html>
