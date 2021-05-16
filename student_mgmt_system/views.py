@@ -21,3 +21,19 @@ def add_cord(request):
             return HttpResponse('Saved!')
         else:
             return render(request, 'add_cord.html', {'cordForm': cord_form})
+
+def update_cord(request, id):
+    if request.method == 'GET':
+        cord = Cordinator.objects.get(id=id)
+        cord_form = CordinatorForm(instance=cord)
+        return render(request, 'update_cord.html', context={'cordForm': cord_form})
+    elif request.method=='POST':
+        cord = Cordinator.objects.get(id=id)
+        data = request.POST
+        cordFrom = CordinatorForm(data, instance=cord)
+        if cordFrom.is_valid():
+            cordFrom.save()
+            return HttpResponse('Updated !!')
+        else:
+            return render(request, 'update_cord.html', context={'cordForm': cordFrom})
+

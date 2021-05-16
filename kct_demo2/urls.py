@@ -19,5 +19,6 @@ from student_mgmt_system import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
-    path('add_cord/', views.add_cord)
+    path('add_cord/', views.add_cord),
+    path('update_cord/<int:id>/', views.update_cord)
 ]
