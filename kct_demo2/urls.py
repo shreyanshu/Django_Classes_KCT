@@ -20,5 +20,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
     path('add_cord/', views.add_cord),
-    path('update_cord/<int:id>/', views.update_cord)
+    path('update_cord/<int:id>/', views.update_cord, name='update_cord'),
+    path('list_cord/', views.ListCord.as_view(), name='list_cord'),
+    path('delete_cord/<int:id>/', views.DeleteCordView.as_view(), name='delete_cord')
 ]
